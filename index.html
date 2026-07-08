@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #3a898f;
+        }
+        h1{
+            color: #b83434;
+        }
+        input{
+            padding: 10px;
+            width: 250px;
+        }
+        button{
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: darkblue;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            background: rgb(67, 3, 83);
+            margin: 10px auto;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+        }
+        li button{
+            margin-left: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <head>
+        <title>Task Manager</title>
+    </head>
+    <body>
+        <h1>Task Manager</h1>
+        <input type="text" id="task" placeholder="Enter Task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList"></ul>
+        <script>
+        function addTask() {
+        let task = document.getElementById("task").value;
+
+        if(task === "") {
+        alert("Please enter a task");
+        return;
+        }
+
+        let li = document.createElement("li");
+        li.innerHTML = task + ' <button onclick="this.parentElement.remove()">Delete</button>';
+
+        document.getElementById("taskList").appendChild(li);
+
+        document.getElementById("task").value = "";
+        }
+        </script>
+    </body>
+</html>
